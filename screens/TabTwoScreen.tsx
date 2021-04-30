@@ -1,17 +1,43 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
-import Circle from "react-colorful-circle";
+// import Slider from "@react-native-community/slider";
 
 import { Text, View } from "../components/Themed";
+import { useState } from "react";
 
 export default function TabTwoScreen() {
-  // const [currentColor, setstate] = useState(initialState)
-  const Circle = () => {
-    return <View style={styles.circle} />;
+  const [circleSize, setCircleSize] = useState(10);
+
+  const Circle = ({ sizeCircle }) => {
+    return <View style={sizeCircle} />;
   };
+
   return (
-    <View>
-      <Circle></Circle>
+    <View
+      style={{
+        backgroundColor: "black",
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Circle
+        sizeCircle={{
+          width: circleSize,
+          height: circleSize,
+          borderRadius: circleSize / 2,
+          backgroundColor: "red",
+        }}
+      ></Circle>
+      {/* <View>
+        <Slider
+          style={{ width: 200, height: 40 }}
+          minimumValue={50}
+          maximumValue={100}
+          minimumTrackTintColor="#FFFFFF"
+          maximumTrackTintColor="#000000"
+        />
+      </View> */}
     </View>
   );
 }
@@ -32,9 +58,6 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   circle: {
-    width: 100,
-    height: 100,
-    borderRadius: 100 / 2,
     backgroundColor: "red",
   },
 });
