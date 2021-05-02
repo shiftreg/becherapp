@@ -1,12 +1,12 @@
 import * as React from "react";
-import { StyleSheet, Image, Button, TouchableOpacity } from "react-native";
-// import Slider from "@react-native-community/slider";
+import { StyleSheet, Image, Button, TouchableOpacity} from "react-native";
+import Slider from "@react-native-community/slider";
 
 import { Text, View  } from "../components/Themed";
 import { useState } from "react";
 
 export default function TabTwoScreen() {
-  const [circleSize, setCircleSize] = useState(150);
+  const [circleSize, setCircleSize] = useState(200);
 
   const Circle = ({ sizeCircle }) => {
     return <View style={sizeCircle} />;
@@ -35,7 +35,7 @@ export default function TabTwoScreen() {
         }}
       ></Circle>
 
-      <View style={styles.Zoom}>
+      {/* <View style={styles.Zoom}>
       <TouchableOpacity onPress={handlePressBig}>
       <Image  style = {{ 
         width: 50,
@@ -48,21 +48,18 @@ export default function TabTwoScreen() {
         width: 50,
         height: 50}} source={require('../assets/images/circle_minus.png')} />
 
-      </TouchableOpacity>
-      </View>
-
-      
-      
-
-      {/* <View>
-        <Slider
-          style={{ width: 200, height: 40 }}
-          minimumValue={50}
-          maximumValue={100}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
+      </TouchableOpacity> */}
+    <View>
+      <Slider
+          style={styles.Slider}
+          value={200}
+          minimumValue={200}
+          maximumValue={500}
+          minimumTrackTintColor="white"
+          maximumTrackTintColor="white"
+          onValueChange={value => setCircleSize(value)}
         />
-      </View> */}
+      </View>
     </View>
   );
 }
@@ -96,8 +93,9 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
   },
-  Zoom: {
-    width: 100,
+  Slider: {
+    width: 300,
     height: 100,
+    backgroundColor: "black"
   },
 });
