@@ -35,7 +35,7 @@ export default function TabTwoScreen() {
         }}
       ></Circle>
 
-      <View>
+      <View style={styles.Zoom}>
       <TouchableOpacity onPress={handlePressBig}>
       <Image  style = {{ 
         width: 50,
@@ -95,5 +95,9 @@ const styles = StyleSheet.create({
   tinyLogo: {
     width: 60,
     height: 60,
+  },
+  Zoom: {
+    width: 100,
+    height: 100,
   },
 });
