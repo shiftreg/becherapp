@@ -20,21 +20,23 @@ export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
   return (
-    <BottomTab.Navigator
+    <BottomTab.Navigator 
+      
       initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
-      <BottomTab.Screen
-        name="TabOne"
+      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint , activeBackgroundColor: 'black', inactiveBackgroundColor: 'black' }}>
+      <BottomTab.Screen 
+        name="Prepare"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="FireItUp"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+
         }}
       />
     </BottomTab.Navigator>
@@ -57,6 +59,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
+        
         options={{ headerTitle: 'Get High O_o!' }}
       />
     </TabOneStack.Navigator>
@@ -67,11 +70,20 @@ const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
 function TabTwoNavigator() {
   return (
-    <TabTwoStack.Navigator>
+    <TabTwoStack.Navigator >
       <TabTwoStack.Screen
         name="TabTwoScreen"
+        
         component={TabTwoScreen}
-        options={{ headerTitle: 'Becher Title Two' }}
+        options={{ headerTitle: '420 Blaze it',  
+        headerStyle: {
+          backgroundColor: 'black',
+          },
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            color: 'white'
+          },
+        }}
       />
     </TabTwoStack.Navigator>
   );
