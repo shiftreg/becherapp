@@ -1,17 +1,20 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image, Button, TouchableOpacity } from "react-native";
 // import Slider from "@react-native-community/slider";
 
-import { Text, View } from "../components/Themed";
+import { Text, View  } from "../components/Themed";
 import { useState } from "react";
 
 export default function TabTwoScreen() {
-  const [circleSize, setCircleSize] = useState(10);
+  const [circleSize, setCircleSize] = useState(150);
 
   const Circle = ({ sizeCircle }) => {
     return <View style={sizeCircle} />;
   };
 
+  const handlePressBig = () => console.log("Bigger Pressed");
+  const handlePressSmall = () => console.log("Smaller Pressed");
+  
   return (
     <View
       style={{
@@ -20,7 +23,9 @@ export default function TabTwoScreen() {
         alignItems: "center",
         justifyContent: "center",
       }}
-    >
+    > 
+
+    
       <Circle
         sizeCircle={{
           width: circleSize,
@@ -29,6 +34,26 @@ export default function TabTwoScreen() {
           backgroundColor: "red",
         }}
       ></Circle>
+
+      <View>
+      <TouchableOpacity onPress={handlePressBig}>
+      <Image  style = {{ 
+        width: 50,
+        height: 50}} source={require('../assets/images/circle_plus.png')} />
+
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={handlePressSmall}>
+      <Image  style = {{ 
+        width: 50,
+        height: 50}} source={require('../assets/images/circle_minus.png')} />
+
+      </TouchableOpacity>
+      </View>
+
+      
+      
+
       {/* <View>
         <Slider
           style={{ width: 200, height: 40 }}
@@ -52,12 +77,23 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
+  wText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white"
+  },
   separator: {
     marginVertical: 30,
     height: 1,
     width: "80%",
+
   },
   circle: {
     backgroundColor: "red",
+  },
+
+  tinyLogo: {
+    width: 60,
+    height: 60,
   },
 });
