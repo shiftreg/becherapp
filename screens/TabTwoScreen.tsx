@@ -21,19 +21,12 @@ export default function TabTwoScreen() {
         backgroundColor: "black",
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
       }}
     > 
 
     
-      <Circle
-        sizeCircle={{
-          width: circleSize,
-          height: circleSize,
-          borderRadius: circleSize / 2,
-          backgroundColor: "red",
-        }}
-      ></Circle>
+
 
       {/* <View style={styles.Zoom}>
       <TouchableOpacity onPress={handlePressBig}>
@@ -49,17 +42,33 @@ export default function TabTwoScreen() {
         height: 50}} source={require('../assets/images/circle_minus.png')} />
 
       </TouchableOpacity> */}
-    <View>
+    <View >
       <Slider
           style={styles.Slider}
           value={200}
           minimumValue={200}
-          maximumValue={500}
-          minimumTrackTintColor="white"
-          maximumTrackTintColor="white"
+          maximumValue={500}  
+          minimumTrackTintColor="grey"
+          maximumTrackTintColor="grey"
           onValueChange={value => setCircleSize(value)}
         />
       </View>
+
+      <View style={{
+        backgroundColor: "black",
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+      }}><Circle
+        sizeCircle={{
+          width: circleSize,
+          height: circleSize,
+          borderRadius: circleSize / 2,
+          backgroundColor: "red",
+        }}
+      ></Circle></View>
+      
+    
     </View>
   );
 }
@@ -95,7 +104,9 @@ const styles = StyleSheet.create({
   },
   Slider: {
     width: 300,
-    height: 100,
-    backgroundColor: "black"
+    height: 50,
+    backgroundColor: "black",
+    
+
   },
 });
