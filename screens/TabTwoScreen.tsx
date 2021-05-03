@@ -1,8 +1,12 @@
 import * as React from "react";
+import { useState } from "react";
 import { StyleSheet, Image, Button, TouchableOpacity, View, Dimensions} from "react-native";
+
+
 import Slider from "@react-native-community/slider";
 import { Text,   } from "../components/Themed";
-import { useState } from "react";
+import Colors from "../constants/Colors";
+
 
 export default function TabTwoScreen() {
   const [circleSize, setCircleSize] = useState(200);
@@ -18,7 +22,7 @@ export default function TabTwoScreen() {
   return (
     <View
       style={{
-        backgroundColor: "black",
+        backgroundColor: Colors.black,
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
@@ -77,23 +81,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     alignItems: "center",
-    backgroundColor: "black",
+    backgroundColor: Colors.black,
     justifyContent: "center"
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  wText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "white"
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-
   },
   circle: {
     flex: 10,
